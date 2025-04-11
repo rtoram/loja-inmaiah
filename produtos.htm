@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - INMAIAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Mesmo CSS do index.html, copiado para consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .menu-carousel {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: 200px;
+            background: #222;
+            overflow: hidden;
+            z-index: 9;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked ~ .menu-carousel {
+            display: block;
+        }
+
+        .carousel-container {
+            display: flex;
+            width: 200%;
+            animation: slide 16s infinite;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            height: 200px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .produtos {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+
+        .produtos h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .grade-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-produto {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .card-produto h3 {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .card-produto p {
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #f1c40f;
+            color: #111;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background-color: #d4ac0d;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4ac0d;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .grade-produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-slide {
+                width: 50%;
+            }
+
+            .carousel-container {
+                width: 400%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">INMAIAH</div>
+        <nav>
+            <ul>
+                <li>
+                    <label for="menu-toggle">Produtos</label>
+                    <input type="checkbox" id="menu-toggle">
+                    <div class="menu-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Inca" alt="Camiseta Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Maia" alt="Camiseta Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Pulseira+Maia" alt="Pulseira Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Boné+Inca" alt="Boné Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Colar+Asteca" alt="Colar Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Sol" alt="Camiseta Sol"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Anel+Maia" alt="Anel Maia"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Produtos -->
+    <section class="produtos">
+        <h2>Todos os Produtos</h2>
+        <div class="grade-produtos">
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Sol" alt="Camiseta Sol">
+                <h3>Camiseta Sol Inca</h3>
+                <p>R$ 79,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Maia" alt="Camiseta Maia">
+                <h3>Camiseta Calendário Maia</h3>
+                <p>R$ 89,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Asteca" alt="Camiseta Asteca">
+                <h3>Camiseta Águia Asteca</h3>
+                <p>R$ 84,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Pulseira" alt="Pulseira">
+                <h3>Pulseira Inca</h3>
+                <p>R$ 29,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Boné" alt="Boné">
+                <h3>Boné Maia</h3>
+                <p>R$ 39,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Colar" alt="Colar">
+                <h3>Colar Asteca</h3>
+                <p>R$ 49,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Inti" alt="Camiseta Inti">
+                <h3>Camiseta Inti Raymi</h3>
+                <p>R$ 79,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Anel" alt="Anel">
+                <h3>Anel Maia</h3>
+                <p>R$ 34,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Quetzal" alt="Camiseta Quetzal">
+                <h3>Camiseta Quetzalcoatl</h3>
+                <p>R$ 89,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Mochila" alt="Mochila">
+                <h3>Mochila Inca</h3>
+                <p>R$ 99,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="logo">INMAIAH</div>
+        <div class="links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="contato.html">Contato</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Trocas e Devoluções</a>
+        </div>
+        <p>© 2025 INMAIAH. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
