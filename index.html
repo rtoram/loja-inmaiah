@@ -63,7 +63,7 @@
             color: #f1c40f;
         }
 
-        /* Carrossel do Menu (acima do banner) */
+        /* Carrossel do Menu (Produtos) */
         .menu-carousel {
             display: none;
             position: fixed;
@@ -87,14 +87,24 @@
             display: flex;
             max-width: 1200px;
             margin: 0 auto;
-            justify-content: center; /* Centraliza as imagens */
+            justify-content: center;
             gap: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-slides {
+            display: flex;
+            width: 200%;
+            transition: transform 0.5s ease;
         }
 
         .carousel-slide {
-            flex: 0 0 23%; /* Ajustado para 4 imagens com espaçamento */
+            flex: 0 0 23%;
             height: 150px;
             position: relative;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .carousel-slide img {
@@ -102,7 +112,54 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+            transition: opacity 0.3s ease;
         }
+
+        .carousel-slide .default-img { opacity: 1; }
+        .carousel-slide .hover-img { opacity: 0; position: absolute; top: 0; left: 0; }
+        .carousel-slide:hover .default-img { opacity: 0; }
+        .carousel-slide:hover .hover-img { opacity: 1; }
+
+        .carousel-slide::before {
+            content: "25% OFF";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .menu-carousel .carousel-slide:nth-child(1) { background-color: #F8B33E; }
+        .menu-carousel .carousel-slide:nth-child(2) { background-color: #E0F83E; }
+        .menu-carousel .carousel-slide:nth-child(3) { background-color: #C9B207; }
+        .menu-carousel .carousel-slide:nth-child(4) { background-color: #F8E23E; }
+        .menu-carousel .carousel-slide:nth-child(1):hover { background-color: #B3B691; }
+        .menu-carousel .carousel-slide:nth-child(2):hover { background-color: #A1B691; }
+        .menu-carousel .carousel-slide:nth-child(3):hover { background-color: #78875A; }
+        .menu-carousel .carousel-slide:nth-child(4):hover { background-color: #D9DFCE; }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav label {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        #menu-slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
+        #menu-slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
 
         /* Banner Principal */
         .banner {
@@ -140,7 +197,7 @@
             color: #111;
         }
 
-        /* Carrossel Abaixo do Banner (agora banners estáticos) */
+        /* Carrossel Abaixo do Banner */
         .main-carousel {
             width: 100vw;
             margin: 0;
@@ -149,63 +206,23 @@
         }
 
         .main-carousel .carousel-container {
-            display: flex;
             max-width: 1200px;
             margin: 0 auto;
-            justify-content: center; /* Centraliza as imagens */
+            justify-content: center;
             gap: 1rem;
         }
 
-        .main-carousel .carousel-slide {
-            flex: 0 0 23%;
-            height: 150px;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        .main-carousel .carousel-slide:nth-child(1) { background-color: #F8B33E; }
+        .main-carousel .carousel-slide:nth-child(2) { background-color: #E0F83E; }
+        .main-carousel .carousel-slide:nth-child(3) { background-color: #C9B207; }
+        .main-carousel .carousel-slide:nth-child(4) { background-color: #F8E23E; }
+        .main-carousel .carousel-slide:nth-child(1):hover { background-color: #B3B691; }
+        .main-carousel .carousel-slide:nth-child(2):hover { background-color: #A1B691; }
+        .main-carousel .carousel-slide:nth-child(3):hover { background-color: #78875A; }
+        .main-carousel .carousel-slide:nth-child(4):hover { background-color: #D9DFCE; }
 
-        .main-carousel .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-
-        .main-carousel .carousel-slide .default-img {
-            opacity: 1;
-        }
-
-        .main-carousel .carousel-slide .hover-img {
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .main-carousel .carousel-slide:hover .default-img {
-            opacity: 0;
-        }
-
-        .main-carousel .carousel-slide:hover .hover-img {
-            opacity: 1;
-        }
-
-        .main-carousel .carousel-slide::before {
-            content: "25% OFF"; /* Percentual de desconto */
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        .main-carousel .carousel-slide:nth-child(1) { background-color: #d4a017; }
-        .main-carousel .carousel-slide:nth-child(2) { background-color: #8b5e34; }
-        .main-carousel .carousel-slide:nth-child(3) { background-color: #4a2c1f; }
-        .main-carousel .carousel-slide:nth-child(4) { background-color: #2f4858; }
+        #main-slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
+        #main-slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
 
         /* Produtos */
         .produtos {
@@ -311,7 +328,15 @@
             }
 
             .carousel-slide {
-                flex: 0 0 45%; /* 2 imagens em mobile */
+                flex: 0 0 45%;
+            }
+
+            .carousel-slides {
+                width: 400%;
+            }
+
+            .carousel-nav {
+                display: none; /* Setas escondidas em mobile */
             }
         }
     </style>
@@ -326,19 +351,47 @@
                     <label for="menu-toggle">Produtos</label>
                     <input type="checkbox" id="menu-toggle">
                     <div class="menu-carousel">
+                        <input type="radio" name="menu-slide" id="menu-slide1" checked>
+                        <input type="radio" name="menu-slide" id="menu-slide2">
                         <div class="carousel-container">
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Camiseta+Inca" alt="Camiseta Inca">
+                            <div class="carousel-slides">
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Inca" alt="Camiseta Inca">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inca+Hover" alt="Inca Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Maia" alt="Camiseta Maia">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Maia+Hover" alt="Maia Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Asteca" alt="Camiseta Asteca">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Asteca+Hover" alt="Asteca Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Pulseira+Maia" alt="Pulseira Maia">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Pulseira+Hover" alt="Pulseira Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Boné+Inca" alt="Boné Inca">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Boné+Hover" alt="Boné Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Colar+Asteca" alt="Colar Asteca">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Colar+Hover" alt="Colar Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Sol" alt="Camiseta Sol">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Sol+Hover" alt="Sol Hover">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Anel+Maia" alt="Anel Maia">
+                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Anel+Hover" alt="Anel Hover">
+                                </div>
                             </div>
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Camiseta+Maia" alt="Camiseta Maia">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Camiseta+Asteca" alt="Camiseta Asteca">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Pulseira+Maia" alt="Pulseira Maia">
-                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <label for="menu-slide1">←</label>
+                            <label for="menu-slide2">→</label>
                         </div>
                     </div>
                 </li>
@@ -359,25 +412,49 @@
         <h2>Nossas Coleções</h2>
     </div>
 
-    <!-- Banners Abaixo do Banner (estáticos com hover) -->
+    <!-- Carrossel Abaixo do Banner -->
     <section class="main-carousel">
+        <input type="radio" name="main-slide" id="main-slide1" checked>
+        <input type="radio" name="main-slide" id="main-slide2">
         <div class="carousel-container">
-            <div class="carousel-slide">
-                <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Inca" alt="Promo Inca">
-                <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inca+Hover" alt="Inca Hover">
+            <div class="carousel-slides">
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Inca" alt="Promo Inca">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inca+Hover" alt="Inca Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Maia" alt="Promo Maia">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Maia+Hover" alt="Maia Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Asteca" alt="Promo Asteca">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Asteca+Hover" alt="Asteca Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Cultura" alt="Promo Cultura">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Cultura+Hover" alt="Cultura Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Nova+Coleção" alt="Nova Coleção">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Coleção+Hover" alt="Coleção Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Edição+Limitada" alt="Edição Limitada">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Limitada+Hover" alt="Limitada Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Inverno+Maia" alt="Inverno Maia">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inverno+Hover" alt="Inverno Hover">
+                </div>
+                <div class="carousel-slide">
+                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Verão+Inca" alt="Verão Inca">
+                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Verão+Hover" alt="Verão Hover">
+                </div>
             </div>
-            <div class="carousel-slide">
-                <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Maia" alt="Promo Maia">
-                <img class="hover-img" src="https://via.placeholder.com/300x150?text=Maia+Hover" alt="Maia Hover">
-            </div>
-            <div class="carousel-slide">
-                <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Asteca" alt="Promo Asteca">
-                <img class="hover-img" src="https://via.placeholder.com/300x150?text=Asteca+Hover" alt="Asteca Hover">
-            </div>
-            <div class="carousel-slide">
-                <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Cultura" alt="Promo Cultura">
-                <img class="hover-img" src="https://via.placeholder.com/300x150?text=Cultura+Hover" alt="Cultura Hover">
-            </div>
+        </div>
+        <div class="carousel-nav">
+            <label for="main-slide1">←</label>
+            <label for="main-slide2">→</label>
         </div>
     </section>
 
