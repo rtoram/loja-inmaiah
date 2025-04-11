@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camisetas Inmaiah</title>
+    <title>INMAIAH - Camisetas e Acessórios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
@@ -22,7 +23,7 @@
             color: white;
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             position: fixed;
             width: 100%;
@@ -31,53 +32,61 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            position: relative;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-size: 1rem;
-            position: relative;
         }
 
         nav a:hover {
             color: #f1c40f;
         }
 
-        /* Carrossel no Menu (Submenu) */
+        /* Carrossel do Menu */
         .menu-carousel {
             display: none;
-            position: absolute;
-            top: 100%;
+            position: fixed;
+            top: 60px;
             left: 0;
-            width: 300px;
-            height: 150px;
-            overflow: hidden;
+            width: 100vw;
+            height: 200px;
             background: #222;
-            border-radius: 5px;
+            overflow: hidden;
+            z-index: 9;
         }
 
-        nav li:hover .menu-carousel {
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked ~ .menu-carousel {
             display: block;
         }
 
         .carousel-container {
             display: flex;
-            width: 300%;
-            animation: slide 9s infinite;
+            width: 200%;
+            animation: slide 16s infinite;
         }
 
         .carousel-slide {
-            width: 100%;
-            height: 150px;
+            width: 25%;
+            height: 200px;
         }
 
         .carousel-slide img {
@@ -88,14 +97,13 @@
 
         @keyframes slide {
             0% { transform: translateX(0); }
-            33% { transform: translateX(-33.33%); }
-            66% { transform: translateX(-66.66%); }
+            50% { transform: translateX(-100%); }
             100% { transform: translateX(0); }
         }
 
         /* Banner Principal */
         .banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1200x400') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1200x400?text=Inmaiah+Banner') center/cover;
             height: 400px;
             display: flex;
             flex-direction: column;
@@ -109,6 +117,7 @@
         .banner h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .banner p {
@@ -118,19 +127,19 @@
 
         /* Carrossel Abaixo do Banner */
         .main-carousel {
-            max-width: 1200px;
-            margin: 2rem auto;
+            width: 100vw;
+            margin: 0;
             height: 200px;
             overflow: hidden;
         }
 
         .main-carousel .carousel-container {
-            width: 300%;
-            animation: slide 12s infinite;
+            width: 200%;
+            animation: slide 16s infinite;
         }
 
         .main-carousel .carousel-slide {
-            width: 33.33%;
+            width: 25%;
             height: 200px;
             float: left;
         }
@@ -141,7 +150,7 @@
             object-fit: cover;
         }
 
-        /* Seção de Produtos */
+        /* Produtos */
         .produtos {
             padding: 2rem;
             max-width: 1200px;
@@ -152,6 +161,7 @@
             text-align: center;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
 
         .grade-produtos {
@@ -203,9 +213,29 @@
         footer {
             background-color: #111;
             color: white;
+            padding: 2rem;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+        }
+
+        footer .logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4ac0d;
         }
 
         /* Responsividade */
@@ -219,16 +249,16 @@
                 font-size: 1.8rem;
             }
 
-            .banner p {
-                font-size: 1rem;
-            }
-
             .grade-produtos {
                 grid-template-columns: 1fr;
             }
 
-            .menu-carousel {
-                width: 100%;
+            .carousel-slide {
+                width: 50%;
+            }
+
+            .carousel-container {
+                width: 400%;
             }
         }
     </style>
@@ -236,103 +266,101 @@
 <body>
     <!-- Cabeçalho -->
     <header>
-        <div class="logo">Inmaiah Camisetas</div>
+        <div class="logo">INMAIAH</div>
         <nav>
             <ul>
                 <li>
-                    <a href="#">Produtos</a>
+                    <label for="menu-toggle">Produtos</label>
+                    <input type="checkbox" id="menu-toggle">
                     <div class="menu-carousel">
                         <div class="carousel-container">
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Produto+1" alt="Produto 1">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Produto+2" alt="Produto 2">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://via.placeholder.com/300x150?text=Produto+3" alt="Produto 3">
-                            </div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Inca" alt="Camiseta Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Maia" alt="Camiseta Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Pulseira+Maia" alt="Pulseira Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Boné+Inca" alt="Boné Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Colar+Asteca" alt="Colar Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Sol" alt="Camiseta Sol"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Anel+Maia" alt="Anel Maia"></div>
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Banner Principal -->
     <section class="banner">
-        <h1>Alcance o Topo com Elite10</h1>
-        <p>Camisetas 100% algodão para quem busca ser conciênte e sustentavel..</p>
+        <h1>INMAIAH</h1>
+        <p>Camisetas e acessórios que contam as histórias das civilizações Inca, Maia e Asteca.</p>
     </section>
 
     <!-- Carrossel Abaixo do Banner -->
     <section class="main-carousel">
         <div class="carousel-container">
-            <div class="carousel-slide">
-                <img src="https://via.placeholder.com/1200x200?text=Banner+1" alt="Banner 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://via.placeholder.com/1200x200?text=Banner+2" alt="Banner 2">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://via.placeholder.com/1200x200?text=Banner+3" alt="Banner 3">
-            </div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Inca" alt="Promo Inca"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Maia" alt="Promo Maia"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Asteca" alt="Promo Asteca"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Cultura" alt="Promo Cultura"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Nova+Coleção" alt="Nova Coleção"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Edição+Limitada" alt="Edição Limitada"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Inverno+Maia" alt="Inverno Maia"></div>
+            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Verão+Inca" alt="Verão Inca"></div>
         </div>
     </section>
 
     <!-- Produtos -->
     <section class="produtos">
-        <h2>Nossos Suplementos</h2>
+        <h2>Nossos Produtos</h2>
         <div class="grade-produtos">
             <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Whey Protein">
-                <h3>Whey Protein</h3>
-                <p>R$ 89,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Creatina">
-                <h3>Creatina</h3>
-                <p>R$ 59,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Pré-treino">
-                <h3>Pré-treino</h3>
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Sol" alt="Camiseta Sol">
+                <h3>Camiseta Sol Inca</h3>
                 <p>R$ 79,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
             <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Multivitamínico">
-                <h3>Multivitamínico</h3>
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Maia" alt="Camiseta Maia">
+                <h3>Camiseta Calendário Maia</h3>
+                <p>R$ 89,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Asteca" alt="Camiseta Asteca">
+                <h3>Camiseta Águia Asteca</h3>
+                <p>R$ 84,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Pulseira" alt="Pulseira">
+                <h3>Pulseira Inca</h3>
+                <p>R$ 29,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180?text=Boné" alt="Boné">
+                <h3>Boné Maia</h3>
                 <p>R$ 39,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
             <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="BCAA">
-                <h3>BCAA</h3>
+                <img src="https://via.placeholder.com/220x180?text=Colar" alt="Colar">
+                <h3>Colar Asteca</h3>
                 <p>R$ 49,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
             <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Glutamina">
-                <h3>Glutamina</h3>
-                <p>R$ 44,90</p>
+                <img src="https://via.placeholder.com/220x180?text=Camiseta+Inti" alt="Camiseta Inti">
+                <h3>Camiseta Inti Raymi</h3>
+                <p>R$ 79,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
             <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Termogênico">
-                <h3>Termogênico</h3>
-                <p>R$ 69,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180" alt="Barra Proteica">
-                <h3>Barra Proteica</h3>
-                <p>R$ 9,90</p>
+                <img src="https://via.placeholder.com/220x180?text=Anel" alt="Anel">
+                <h3>Anel Maia</h3>
+                <p>R$ 34,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
         </div>
@@ -340,7 +368,15 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>© 2025 INMAIAH CAMISETAS E ACESSORIOS. Todos os direitos reservados.</p>
+        <div class="logo">INMAIAH</div>
+        <div class="links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="contato.html">Contato</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Trocas e Devoluções</a>
+        </div>
+        <p>© 2025 INMAIAH. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
