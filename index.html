@@ -136,10 +136,18 @@
         .menu-carousel .carousel-slide:nth-child(2) { background-color: #E0F83E; }
         .menu-carousel .carousel-slide:nth-child(3) { background-color: #C9B207; }
         .menu-carousel .carousel-slide:nth-child(4) { background-color: #F8E23E; }
+        .menu-carousel .carousel-slide:nth-child(5) { background-color: #F8B33E; }
+        .menu-carousel .carousel-slide:nth-child(6) { background-color: #E0F83E; }
+        .menu-carousel .carousel-slide:nth-child(7) { background-color: #C9B207; }
+        .menu-carousel .carousel-slide:nth-child(8) { background-color: #F8E23E; }
         .menu-carousel .carousel-slide:nth-child(1):hover { background-color: #B3B691; }
         .menu-carousel .carousel-slide:nth-child(2):hover { background-color: #A1B691; }
         .menu-carousel .carousel-slide:nth-child(3):hover { background-color: #78875A; }
         .menu-carousel .carousel-slide:nth-child(4):hover { background-color: #D9DFCE; }
+        .menu-carousel .carousel-slide:nth-child(5):hover { background-color: #B3B691; }
+        .menu-carousel .carousel-slide:nth-child(6):hover { background-color: #A1B691; }
+        .menu-carousel .carousel-slide:nth-child(7):hover { background-color: #78875A; }
+        .menu-carousel .carousel-slide:nth-child(8):hover { background-color: #D9DFCE; }
 
         .carousel-nav {
             position: absolute;
@@ -172,6 +180,7 @@
             color: white;
             text-align: center;
             margin-top: 60px;
+            position: relative; /* Garante que o banner não interfira nas setas */
         }
 
         .banner h1 {
@@ -203,6 +212,7 @@
             margin: 0;
             padding: 1rem 0;
             background: #f5f5f5;
+            position: relative; /* Contém as setas */
         }
 
         .main-carousel .carousel-container {
@@ -216,10 +226,18 @@
         .main-carousel .carousel-slide:nth-child(2) { background-color: #E0F83E; }
         .main-carousel .carousel-slide:nth-child(3) { background-color: #C9B207; }
         .main-carousel .carousel-slide:nth-child(4) { background-color: #F8E23E; }
+        .main-carousel .carousel-slide:nth-child(5) { background-color: #F8B33E; }
+        .main-carousel .carousel-slide:nth-child(6) { background-color: #E0F83E; }
+        .main-carousel .carousel-slide:nth-child(7) { background-color: #C9B207; }
+        .main-carousel .carousel-slide:nth-child(8) { background-color: #F8E23E; }
         .main-carousel .carousel-slide:nth-child(1):hover { background-color: #B3B691; }
         .main-carousel .carousel-slide:nth-child(2):hover { background-color: #A1B691; }
         .main-carousel .carousel-slide:nth-child(3):hover { background-color: #78875A; }
         .main-carousel .carousel-slide:nth-child(4):hover { background-color: #D9DFCE; }
+        .main-carousel .carousel-slide:nth-child(5):hover { background-color: #B3B691; }
+        .main-carousel .carousel-slide:nth-child(6):hover { background-color: #A1B691; }
+        .main-carousel .carousel-slide:nth-child(7):hover { background-color: #78875A; }
+        .main-carousel .carousel-slide:nth-child(8):hover { background-color: #D9DFCE; }
 
         #main-slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
         #main-slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
@@ -336,7 +354,7 @@
             }
 
             .carousel-nav {
-                display: none; /* Setas escondidas em mobile */
+                display: none;
             }
         }
     </style>
@@ -451,10 +469,10 @@
                     <img class="hover-img" src="https://via.placeholder.com/300x150?text=Verão+Hover" alt="Verão Hover">
                 </div>
             </div>
-        </div>
-        <div class="carousel-nav">
-            <label for="main-slide1">←</label>
-            <label for="main-slide2">→</label>
+            <div class="carousel-nav">
+                <label for="main-slide1">←</label>
+                <label for="main-slide2">→</label>
+            </div>
         </div>
     </section>
 
