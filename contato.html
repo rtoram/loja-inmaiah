@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - INMAIAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .menu-carousel {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: 200px;
+            background: #222;
+            overflow: hidden;
+            z-index: 9;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked ~ .menu-carousel {
+            display: block;
+        }
+
+        .carousel-container {
+            display: flex;
+            width: 200%;
+            animation: slide 16s infinite;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            height: 200px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .contato {
+            position: relative;
+            min-height: 100vh;
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .contato-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .banner-container {
+            display: flex;
+            width: 300%;
+            animation: slide-bg 20s infinite;
+        }
+
+        .banner-slide {
+            width: 33.33%;
+            height: 100%;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        @keyframes slide-bg {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        .info-cards {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            padding: 1rem;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .formulario {
+            background: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .formulario h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .formulario input, .formulario textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .formulario button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #f1c40f;
+            color: #111;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .formulario button:hover {
+            background-color: #d4ac0d;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4ac0d;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .info-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">INMAIAH</div>
+        <nav>
+            <ul>
+                <li>
+                    <label for="menu-toggle">Produtos</label>
+                    <input type="checkbox" id="menu-toggle">
+                    <div class="menu-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Inca" alt="Camiseta Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Maia" alt="Camiseta Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Pulseira+Maia" alt="Pulseira Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Boné+Inca" alt="Boné Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Colar+Asteca" alt="Colar Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Sol" alt="Camiseta Sol"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Anel+Maia" alt="Anel Maia"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contato -->
+    <section class="contato">
+        <div class="contato-banner">
+            <div class="banner-container">
+                <div class="banner-slide"><img src="https://via.placeholder.com/1200x800?text=Inca+Cultura" alt="Inca Cultura"></div>
+                <div class="banner-slide"><img src="https://via.placeholder.com/1200x800?text=Maia+Cultura" alt="Maia Cultura"></div>
+                <div class="banner-slide"><img src="https://via.placeholder.com/1200x800?text=Asteca+Cultura" alt="Asteca Cultura"></div>
+            </div>
+        </div>
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Nossa Missão</h3>
+                <p>Contar as histórias das civilizações pré-colombianas através de designs únicos e sustentáveis.</p>
+            </div>
+            <div class="info-card">
+                <h3>Qualidade</h3>
+                <p>Usamos materiais de alta qualidade para garantir conforto e durabilidade em cada peça.</p>
+            </div>
+            <div class="info-card">
+                <h3>Cultura</h3>
+                <p>Cada produto é inspirado em símbolos e mitos Incas, Maias e Astecas, com respeito às tradições.</p>
+            </div>
+        </div>
+        <div class="formulario">
+            <h2>Entre em Contato</h2>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="E-mail" required>
+            <textarea placeholder="Mensagem" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="logo">INMAIAH</div>
+        <div class="links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="contato.html">Contato</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Trocas e Devoluções</a>
+        </div>
+        <p>© 2025 INMAIAH. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
