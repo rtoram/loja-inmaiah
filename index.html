@@ -27,6 +27,7 @@
             position: fixed;
             width: 100%;
             top: 0;
+            z-index: 10;
         }
 
         .logo {
@@ -44,13 +45,55 @@
             color: white;
             text-decoration: none;
             font-size: 1rem;
+            position: relative;
         }
 
         nav a:hover {
-            color: #f1c40f; /* Amarelo/dourado inspirado em esportes */
+            color: #f1c40f;
         }
 
-        /* Banner */
+        /* Carrossel no Menu (Submenu) */
+        .menu-carousel {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            background: #222;
+            border-radius: 5px;
+        }
+
+        nav li:hover .menu-carousel {
+            display: block;
+        }
+
+        .carousel-container {
+            display: flex;
+            width: 300%;
+            animation: slide 9s infinite;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            height: 150px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Banner Principal */
         .banner {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1200x400') center/cover;
             height: 400px;
@@ -60,7 +103,7 @@
             align-items: center;
             color: white;
             text-align: center;
-            margin-top: 60px; /* Espaço para o cabeçalho fixo */
+            margin-top: 60px;
         }
 
         .banner h1 {
@@ -71,6 +114,31 @@
         .banner p {
             font-size: 1.1rem;
             max-width: 500px;
+        }
+
+        /* Carrossel Abaixo do Banner */
+        .main-carousel {
+            max-width: 1200px;
+            margin: 2rem auto;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .main-carousel .carousel-container {
+            width: 300%;
+            animation: slide 12s infinite;
+        }
+
+        .main-carousel .carousel-slide {
+            width: 33.33%;
+            height: 200px;
+            float: left;
+        }
+
+        .main-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Seção de Produtos */
@@ -158,6 +226,10 @@
             .grade-produtos {
                 grid-template-columns: 1fr;
             }
+
+            .menu-carousel {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -167,18 +239,48 @@
         <div class="logo">Inmaiah Camisetas</div>
         <nav>
             <ul>
+                <li>
+                    <a href="#">Produtos</a>
+                    <div class="menu-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/300x150?text=Produto+1" alt="Produto 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/300x150?text=Produto+2" alt="Produto 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/300x150?text=Produto+3" alt="Produto 3">
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Produtos</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Banner -->
+    <!-- Banner Principal -->
     <section class="banner">
-        <h1>Alcance o Topo com a Inmaiah</h1>
-        <p>Camisetas 100% algodão para quem busca ser conciênte e sustentavel.</p>
+        <h1>Alcance o Topo com Elite10</h1>
+        <p>Camisetas 100% algodão para quem busca ser conciênte e sustentavel..</p>
+    </section>
+
+    <!-- Carrossel Abaixo do Banner -->
+    <section class="main-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x200?text=Banner+1" alt="Banner 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x200?text=Banner+2" alt="Banner 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x200?text=Banner+3" alt="Banner 3">
+            </div>
+        </div>
     </section>
 
     <!-- Produtos -->
@@ -209,12 +311,36 @@
                 <p>R$ 39,90</p>
                 <a href="#" class="botao">Adicionar ao Carrinho</a>
             </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180" alt="BCAA">
+                <h3>BCAA</h3>
+                <p>R$ 49,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180" alt="Glutamina">
+                <h3>Glutamina</h3>
+                <p>R$ 44,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180" alt="Termogênico">
+                <h3>Termogênico</h3>
+                <p>R$ 69,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/220x180" alt="Barra Proteica">
+                <h3>Barra Proteica</h3>
+                <p>R$ 9,90</p>
+                <a href="#" class="botao">Adicionar ao Carrinho</a>
+            </div>
         </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 INMAIAH CAMISETAS E ACESSORIOS. Todos os direitos reservados.</p>
+        <p>© 2025 INMAIAH CAMISETAS E ACESSORIOS. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
