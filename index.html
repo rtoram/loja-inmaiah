@@ -14,12 +14,13 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #E7DAE7; /* Lilás claro como fundo geral */
+            color: #63A5A5; /* Ciano esverdeado para texto principal */
         }
 
         /* Cabeçalho */
         header {
-            background-color: #111;
+            background-color: #3F7A91; /* Azul escuro */
             color: white;
             padding: 1rem 2rem;
             display: flex;
@@ -60,7 +61,7 @@
         }
 
         nav a:hover {
-            color: #f1c40f;
+            color: #7DA6BC; /* Azul médio no hover */
         }
 
         /* Carrossel do Menu (Produtos) */
@@ -70,7 +71,7 @@
             top: 60px;
             left: 0;
             width: 100vw;
-            background: #222;
+            background: #222; /* Mantido como está para contraste com banners */
             padding: 1rem 0;
             z-index: 9;
         }
@@ -171,7 +172,7 @@
 
         /* Banner Principal */
         .banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1200x400?text=Inmaiah+Banner') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://dl.dropboxusercontent.com/scl/fi/fwq3x5a8scsmzehmfi9ac/Adventure.png') center/cover;
             height: 400px;
             display: flex;
             flex-direction: column;
@@ -180,7 +181,7 @@
             color: white;
             text-align: center;
             margin-top: 60px;
-            position: relative; /* Garante que o banner não interfira nas setas */
+            position: relative;
         }
 
         .banner h1 {
@@ -190,358 +191,4 @@
         }
 
         .banner p {
-            font-size: 1.1rem;
-            max-width: 500px;
-        }
-
-        /* Título antes do carrossel */
-        .colecoes-titulo {
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        .colecoes-titulo h2 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            color: #111;
-        }
-
-        /* Carrossel Abaixo do Banner */
-        .main-carousel {
-            width: 100vw;
-            margin: 0;
-            padding: 1rem 0;
-            background: #f5f5f5;
-            position: relative; /* Contém as setas */
-        }
-
-        .main-carousel .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .main-carousel .carousel-slide:nth-child(1) { background-color: #F8B33E; }
-        .main-carousel .carousel-slide:nth-child(2) { background-color: #E0F83E; }
-        .main-carousel .carousel-slide:nth-child(3) { background-color: #C9B207; }
-        .main-carousel .carousel-slide:nth-child(4) { background-color: #F8E23E; }
-        .main-carousel .carousel-slide:nth-child(5) { background-color: #F8B33E; }
-        .main-carousel .carousel-slide:nth-child(6) { background-color: #E0F83E; }
-        .main-carousel .carousel-slide:nth-child(7) { background-color: #C9B207; }
-        .main-carousel .carousel-slide:nth-child(8) { background-color: #F8E23E; }
-        .main-carousel .carousel-slide:nth-child(1):hover { background-color: #B3B691; }
-        .main-carousel .carousel-slide:nth-child(2):hover { background-color: #A1B691; }
-        .main-carousel .carousel-slide:nth-child(3):hover { background-color: #78875A; }
-        .main-carousel .carousel-slide:nth-child(4):hover { background-color: #D9DFCE; }
-        .main-carousel .carousel-slide:nth-child(5):hover { background-color: #B3B691; }
-        .main-carousel .carousel-slide:nth-child(6):hover { background-color: #A1B691; }
-        .main-carousel .carousel-slide:nth-child(7):hover { background-color: #78875A; }
-        .main-carousel .carousel-slide:nth-child(8):hover { background-color: #D9DFCE; }
-
-        #main-slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
-        #main-slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
-
-        /* Produtos */
-        .produtos {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .produtos h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .grade-produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card-produto {
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            padding-bottom: 1rem;
-        }
-
-        .card-produto img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .card-produto h3 {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-
-        .card-produto p {
-            color: #333;
-            margin-bottom: 0.8rem;
-        }
-
-        .botao {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background-color: #f1c40f;
-            color: #111;
-            text-decoration: none;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-
-        .botao:hover {
-            background-color: #d4ac0d;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #111;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        footer .logo {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        footer .links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        footer a {
-            color: #f1c40f;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #d4ac0d;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .banner h1 {
-                font-size: 1.8rem;
-            }
-
-            .grade-produtos {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-slide {
-                flex: 0 0 45%;
-            }
-
-            .carousel-slides {
-                width: 400%;
-            }
-
-            .carousel-nav {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Cabeçalho -->
-    <header>
-        <div class="logo"><a href="index.html">INMAIAH</a></div>
-        <nav>
-            <ul>
-                <li>
-                    <label for="menu-toggle">Produtos</label>
-                    <input type="checkbox" id="menu-toggle">
-                    <div class="menu-carousel">
-                        <input type="radio" name="menu-slide" id="menu-slide1" checked>
-                        <input type="radio" name="menu-slide" id="menu-slide2">
-                        <div class="carousel-container">
-                            <div class="carousel-slides">
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Inca" alt="Camiseta Inca">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inca+Hover" alt="Inca Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Maia" alt="Camiseta Maia">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Maia+Hover" alt="Maia Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Asteca" alt="Camiseta Asteca">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Asteca+Hover" alt="Asteca Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Pulseira+Maia" alt="Pulseira Maia">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Pulseira+Hover" alt="Pulseira Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Boné+Inca" alt="Boné Inca">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Boné+Hover" alt="Boné Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Colar+Asteca" alt="Colar Asteca">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Colar+Hover" alt="Colar Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Camiseta+Sol" alt="Camiseta Sol">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Sol+Hover" alt="Sol Hover">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Anel+Maia" alt="Anel Maia">
-                                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Anel+Hover" alt="Anel Hover">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-nav">
-                            <label for="menu-slide1">←</label>
-                            <label for="menu-slide2">→</label>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Banner Principal -->
-    <section class="banner">
-        <h1>INMAIAH</h1>
-        <p>Camisetas e acessórios que contam as histórias das civilizações Inca, Maia e Asteca.</p>
-    </section>
-
-    <!-- Título antes do Carrossel -->
-    <div class="colecoes-titulo">
-        <h2>Nossas Coleções</h2>
-    </div>
-
-    <!-- Carrossel Abaixo do Banner -->
-    <section class="main-carousel">
-        <input type="radio" name="main-slide" id="main-slide1" checked>
-        <input type="radio" name="main-slide" id="main-slide2">
-        <div class="carousel-container">
-            <div class="carousel-slides">
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Inca" alt="Promo Inca">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inca+Hover" alt="Inca Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Maia" alt="Promo Maia">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Maia+Hover" alt="Maia Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Asteca" alt="Promo Asteca">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Asteca+Hover" alt="Asteca Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Promo+Cultura" alt="Promo Cultura">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Cultura+Hover" alt="Cultura Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Nova+Coleção" alt="Nova Coleção">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Coleção+Hover" alt="Coleção Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Edição+Limitada" alt="Edição Limitada">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Limitada+Hover" alt="Limitada Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Inverno+Maia" alt="Inverno Maia">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Inverno+Hover" alt="Inverno Hover">
-                </div>
-                <div class="carousel-slide">
-                    <img class="default-img" src="https://via.placeholder.com/300x150?text=Verão+Inca" alt="Verão Inca">
-                    <img class="hover-img" src="https://via.placeholder.com/300x150?text=Verão+Hover" alt="Verão Hover">
-                </div>
-            </div>
-            <div class="carousel-nav">
-                <label for="main-slide1">←</label>
-                <label for="main-slide2">→</label>
-            </div>
-        </div>
-    </section>
-
-    <!-- Produtos -->
-    <section class="produtos">
-        <h2>Nossos Produtos</h2>
-        <div class="grade-produtos">
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Camiseta+Sol" alt="Camiseta Sol">
-                <h3>Camiseta Sol Inca</h3>
-                <p>R$ 79,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Camiseta+Maia" alt="Camiseta Maia">
-                <h3>Camiseta Calendário Maia</h3>
-                <p>R$ 89,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Camiseta+Asteca" alt="Camiseta Asteca">
-                <h3>Camiseta Águia Asteca</h3>
-                <p>R$ 84,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Pulseira" alt="Pulseira">
-                <h3>Pulseira Inca</h3>
-                <p>R$ 29,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Boné" alt="Boné">
-                <h3>Boné Maia</h3>
-                <p>R$ 39,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Colar" alt="Colar">
-                <h3>Colar Asteca</h3>
-                <p>R$ 49,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Camiseta+Inti" alt="Camiseta Inti">
-                <h3>Camiseta Inti Raymi</h3>
-                <p>R$ 79,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-            <div class="card-produto">
-                <img src="https://via.placeholder.com/220x180?text=Anel" alt="Anel">
-                <h3>Anel Maia</h3>
-                <p>R$ 34,90</p>
-                <a href="#" class="botao">Adicionar ao Carrinho</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer>
-        <div class="logo">INMAIAH</div>
-        <div class="links">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="contato.html">Contato</a>
-            <a href="#">Política de Privacidade</a>
-            <a href="#">Trocas e Devoluções</a>
-        </div>
-        <p>© 2025 INMAIAH. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+            font-size: 1.1
