@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - INMAIAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Mesmo CSS do index.html, ajustado para a página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .menu-carousel {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: 200px;
+            background: #222;
+            overflow: hidden;
+            z-index: 9;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked ~ .menu-carousel {
+            display: block;
+        }
+
+        .carousel-container {
+            display: flex;
+            width: 200%;
+            animation: slide 16s infinite;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            height: 200px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .sobre {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 80px auto 0;
+            text-align: center;
+        }
+
+        .sobre h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .sobre p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4ac0d;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .sobre h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">INMAIAH</div>
+        <nav>
+            <ul>
+                <li>
+                    <label for="menu-toggle">Produtos</label>
+                    <input type="checkbox" id="menu-toggle">
+                    <div class="menu-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Inca" alt="Camiseta Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Maia" alt="Camiseta Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Pulseira+Maia" alt="Pulseira Maia"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Boné+Inca" alt="Boné Inca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Colar+Asteca" alt="Colar Asteca"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Sol" alt="Camiseta Sol"></div>
+                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Anel+Maia" alt="Anel Maia"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sobre -->
+    <section class="sobre">
+        <h1>Sobre a INMAIAH</h1>
+        <p>A INMAIAH nasceu para celebrar as ricas histórias das civilizações pré-colombianas: Incas, Maias e Astecas. Cada camiseta e acessório é desenhado com inspiração nos símbolos, mitos e artefatos dessas culturas, trazendo um pedaço da história para o seu dia a dia.</p>
+        <p>Nossa missão é criar peças que conectem você à força e sabedoria dos povos antigos, com qualidade, estilo e respeito às suas tradições. Somos mais que uma marca — somos contadores de histórias.</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="logo">INMAIAH</div>
+        <div class="links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="contato.html">Contato</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Trocas e Devoluções</a>
+        </div>
+        <p>© 2025 INMAIAH. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
