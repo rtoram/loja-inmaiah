@@ -23,7 +23,7 @@
             color: white;
             padding: 1rem 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
@@ -38,35 +38,35 @@
         }
 
         nav {
-            position: relative;
+            display: flex;
+            align-items: center;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.7rem; /* 30% menor que 1rem */
         }
 
         nav a:hover {
             color: #f1c40f;
         }
 
-        /* Carrossel do Menu */
+        /* Carrossel do Menu (acima do banner) */
         .menu-carousel {
             display: none;
             position: fixed;
             top: 60px;
             left: 0;
             width: 100vw;
-            height: 200px;
             background: #222;
-            overflow: hidden;
+            padding: 1rem 0;
             z-index: 9;
         }
 
@@ -80,13 +80,15 @@
 
         .carousel-container {
             display: flex;
-            width: 200%;
-            animation: slide 16s infinite;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
         }
 
         .carousel-slide {
-            width: 25%;
-            height: 200px;
+            flex: 0 0 25%;
+            height: 150px;
         }
 
         .carousel-slide img {
@@ -95,10 +97,30 @@
             object-fit: cover;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav label {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        #slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
+        #slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
+
+        .carousel-slides {
+            display: flex;
+            width: 200%;
+            transition: transform 0.5s ease;
         }
 
         /* Banner Principal */
@@ -125,30 +147,57 @@
             max-width: 500px;
         }
 
+        /* Título antes do carrossel */
+        .colecoes-titulo {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .colecoes-titulo h2 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #111;
+        }
+
         /* Carrossel Abaixo do Banner */
         .main-carousel {
             width: 100vw;
             margin: 0;
-            height: 200px;
-            overflow: hidden;
+            padding: 1rem 0;
+            background: #222;
         }
 
         .main-carousel .carousel-container {
-            width: 200%;
-            animation: slide 16s infinite;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
         }
 
         .main-carousel .carousel-slide {
-            width: 25%;
-            height: 200px;
-            float: left;
+            flex: 0 0 25%;
+            height: 150px;
         }
 
-        .main-carousel img {
+        .main-carousel .carousel-nav {
+            position: absolute;
+            top: 50%;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
         }
+
+        .main-carousel .carousel-nav label {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        #main-slide1:checked ~ .carousel-container .carousel-slides { transform: translateX(0); }
+        #main-slide2:checked ~ .carousel-container .carousel-slides { transform: translateX(-100%); }
 
         /* Produtos */
         .produtos {
@@ -254,11 +303,15 @@
             }
 
             .carousel-slide {
-                width: 50%;
+                flex: 0 0 50%;
             }
 
-            .carousel-container {
+            .carousel-slides {
                 width: 400%;
+            }
+
+            .carousel-nav {
+                display: none; /* Setas escondidas em mobile para simplicidade */
             }
         }
     </style>
@@ -273,15 +326,23 @@
                     <label for="menu-toggle">Produtos</label>
                     <input type="checkbox" id="menu-toggle">
                     <div class="menu-carousel">
+                        <input type="radio" name="menu-slide" id="slide1" checked>
+                        <input type="radio" name="menu-slide" id="slide2">
                         <div class="carousel-container">
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Inca" alt="Camiseta Inca"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Maia" alt="Camiseta Maia"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Pulseira+Maia" alt="Pulseira Maia"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Boné+Inca" alt="Boné Inca"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Colar+Asteca" alt="Colar Asteca"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Camiseta+Sol" alt="Camiseta Sol"></div>
-                            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Anel+Maia" alt="Anel Maia"></div>
+                            <div class="carousel-slides">
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Camiseta+Inca" alt="Camiseta Inca"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Camiseta+Maia" alt="Camiseta Maia"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Camiseta+Asteca" alt="Camiseta Asteca"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Pulseira+Maia" alt="Pulseira Maia"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Boné+Inca" alt="Boné Inca"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Colar+Asteca" alt="Colar Asteca"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Camiseta+Sol" alt="Camiseta Sol"></div>
+                                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Anel+Maia" alt="Anel Maia"></div>
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <label for="slide1">←</label>
+                            <label for="slide2">→</label>
                         </div>
                     </div>
                 </li>
@@ -297,17 +358,30 @@
         <p>Camisetas e acessórios que contam as histórias das civilizações Inca, Maia e Asteca.</p>
     </section>
 
+    <!-- Título antes do Carrossel -->
+    <div class="colecoes-titulo">
+        <h2>Nossas Coleções</h2>
+    </div>
+
     <!-- Carrossel Abaixo do Banner -->
     <section class="main-carousel">
+        <input type="radio" name="main-slide" id="main-slide1" checked>
+        <input type="radio" name="main-slide" id="main-slide2">
         <div class="carousel-container">
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Inca" alt="Promo Inca"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Maia" alt="Promo Maia"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Asteca" alt="Promo Asteca"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Promo+Cultura" alt="Promo Cultura"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Nova+Coleção" alt="Nova Coleção"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Edição+Limitada" alt="Edição Limitada"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Inverno+Maia" alt="Inverno Maia"></div>
-            <div class="carousel-slide"><img src="https://via.placeholder.com/300x200?text=Verão+Inca" alt="Verão Inca"></div>
+            <div class="carousel-slides">
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Promo+Inca" alt="Promo Inca"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Promo+Maia" alt="Promo Maia"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Promo+Asteca" alt="Promo Asteca"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Promo+Cultura" alt="Promo Cultura"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Nova+Coleção" alt="Nova Coleção"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Edição+Limitada" alt="Edição Limitada"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Inverno+Maia" alt="Inverno Maia"></div>
+                <div class="carousel-slide"><img src="https://via.placeholder.com/300x150?text=Verão+Inca" alt="Verão Inca"></div>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <label for="main-slide1">←</label>
+            <label for="main-slide2">→</label>
         </div>
     </section>
 
